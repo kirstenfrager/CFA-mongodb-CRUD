@@ -1,14 +1,15 @@
-#CRUD
+# CRUD
 
-A node.js application created with express to practice CRUD and create API routes for each as . 
+A node.js application created with express to practice CRUD and create API routes for each.
 
-####C
+#### C
 Create
-####R
+#### R
 Remove
-####U 
+#### U
 Update
-####D
+#### D
+
 Delete
 
 ### Challenge:
@@ -16,4 +17,3 @@ Delete
 2. Add a route to delete an ingredient
 3. Create a new route namespace called /api and create a root route which returns all our ingredient data as json
 4. Create API routes for all CRUD actions
-
