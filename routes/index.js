@@ -19,8 +19,6 @@ router.post('/ingredients/:id/edit', ingredientController.updateIngredients);
 router.get('/api/ingredients/:id', apiIngredientController.editIngredientsApi);
 router.post('/api/ingredients/:id/edit', apiIngredientController.updateIngredientsApi);
 
-// router.get('/ingredients/:id/delete', ingredientController.deleteIngredients);
-
 router.post('/ingredients/:id/delete', ingredientController.deleteIngredients);
 router.delete('/api/ingredients/:id/delete', apiIngredientController.deleteIngredientsApi);
 
