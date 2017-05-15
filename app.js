@@ -1,4 +1,3 @@
-require('dotenv').config()
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,16 +9,17 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 const authApi = require('./middleware/authApi');
 
-var mongoose = require('mongoose');
-
 var app = express();
 
 var jwt = require('jsonwebtoken');
 var token = jwt.sign({ email: 'kirsten.frager@hotmail.com'}, 'secretcode');
 console.log(token);
 
+const mlabpassword = process.env.DBPASSWORD
+
+var mongoose = require('mongoose');
 // now that we have req mongoose we can connect to our database. database is called recipes
-mongoose.connect(`${process.env.MONGOLAB_URI}`);
+mongoose.connect(`mongodb://mongocrud:${mlabpassword}@ds143231.mlab.com:43231/crud-frager`);
 const { connection: db } =  mongoose;
 
 // on an event of an error we will log that error. on event of database being opened we will log conneted to database
