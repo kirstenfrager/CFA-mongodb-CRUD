@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -18,7 +19,7 @@ var token = jwt.sign({ email: 'kirsten.frager@hotmail.com'}, 'secretcode');
 console.log(token);
 
 // now that we have req mongoose we can connect to our database. database is called recipes
-mongoose.connect('mongodb://localhost/recipes');
+mongoose.connect(`${process.env.MONGOLAB_URI}`);
 const { connection: db } =  mongoose;
 
 // on an event of an error we will log that error. on event of database being opened we will log conneted to database
