@@ -38,22 +38,22 @@ exports.updateIngredientsApi = (req, res) => {
     })
 };
 
-// exports.deleteIngredientsApi = (req,res) => {
-//   Ingredient.findOneAndRemove({ _id: req.params.id})
-//     .then(() => {
-//       res.json(ingredient)
-//     });
-// };
-
-exports.deleteIngredientApi = function(req, res){
-  Ingredient.findByIdAndRemove({_id: req.params.id},
-    function(err){
-      if(err) res.json(err);
-      else {
-        Ingredient.find()
-          .then(ingredients => {
-            res.json(ingredients)
-          })
-      };
+exports.deleteIngredientsApi = (req,res) => {
+  Ingredient.findOneAndRemove({ _id: req.params.id})
+    .then(() => {
+      res.json(ingredient)
     });
 };
+
+// exports.deleteIngredientApi = function(req, res){
+//   Ingredient.findByIdAndRemove({_id: req.params.id},
+//     function(err){
+//       if(err) res.json(err);
+//       else {
+//         Ingredient.find()
+//           .then(ingredients => {
+//             res.json(ingredients)
+//           })
+//       };
+//     });
+// };
