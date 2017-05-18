@@ -18,4 +18,4 @@ const ingredientSchema = new Schema({
 const Ingredient = mongoose.model('Ingredient', ingredientSchema);
 
 // we want to export this ingredient. making this available in other parts.
-module.exports = Ingredient
+module.exports = Ingredient;

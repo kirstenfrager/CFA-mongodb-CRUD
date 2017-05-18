@@ -15,7 +15,7 @@ exports.postIngredientsApi = (req, res) => {
   ingredient.name = name;
   ingredient.save()
     .then(() => {
-      res.redirect('/api')
+      res.json(ingredient)
     });
 };
 
@@ -34,13 +34,26 @@ exports.updateIngredientsApi = (req, res) => {
     new: true   //returns new ingredient
   })
     .then(ingredient => {
-      res.redirect(`/api/ingredients/${req.params.id}`)
+      res.json(ingredient)
     })
 };
 
-exports.deleteIngredientsApi = (req,res) => {
-  Ingredient.findOneAndRemove({ _id: req.params.id})
-    .then(() => {
-      res.redirect('/api');
+// exports.deleteIngredientsApi = (req,res) => {
+//   Ingredient.findOneAndRemove({ _id: req.params.id})
+//     .then(() => {
+//       res.json(ingredient)
+//     });
+// };
+
+exports.deleteIngredientApi = function(req, res){
+  Ingredient.findByIdAndRemove({_id: req.params.id},
+    function(err){
+      if(err) res.json(err);
+      else {
+        Ingredient.find()
+          .then(ingredients => {
+            res.json(ingredients)
+          })
+      };
     });
 };

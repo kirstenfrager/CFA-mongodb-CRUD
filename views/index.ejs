@@ -16,8 +16,11 @@
     <ul>
       <!-- looping over ingredients -->
       <% ingredients.forEach(ingredient => { %>
-        <li><%= ingredient.name %> <a href="/ingredients/<%= ingredient._id %>/edit">Edit</a> | <form action="/ingredients/<%= ingredient._id %>/delete" method="post">
+        <li><%= ingredient._id %> <%= ingredient.name %>
+          <a href="/ingredients/<%= ingredient._id %>/edit">Edit</a> |
+          <form action="/ingredients/<%= ingredient._id %>/delete" method="post">
             <input type="submit" value="delete">
+          </form>
       </li>
       <% }) %>
     </ul>

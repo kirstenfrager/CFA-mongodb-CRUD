@@ -51,8 +51,8 @@ exports.updateIngredients = (req, res) => {
 // 	});
 // };
 
-exports.deleteIngredients = (req,res) => {
-  Ingredient.findOneAndRemove({ _id: req.params.id})
+exports.deleteIngredients = (req, res) => {
+  Ingredient.findByIdAndRemove(req.params.id)
     .then(() => {
       res.redirect('/');
     });

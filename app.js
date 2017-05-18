@@ -18,8 +18,10 @@ console.log(token);
 const mlabpassword = process.env.DBPASSWORD
 
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/recipes');
 // now that we have req mongoose we can connect to our database. database is called recipes
-mongoose.connect(`mongodb://mongocrud:${mlabpassword}@ds143231.mlab.com:43231/crud-frager`);
+// mongoose.connect(process.env.RECIPE_DB);
+// mongoose.connect(`mongodb://mongocrud:${mlabpassword}@ds143231.mlab.com:43231/crud-frager`);
 const { connection: db } =  mongoose;
 
 // on an event of an error we will log that error. on event of database being opened we will log conneted to database
